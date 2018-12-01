@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: kahris
+    uniqueID: 2918623625
+    locked: 0

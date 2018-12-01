@@ -16,6 +16,7 @@ public class Player_Controller : MonoBehaviour {
 
 	//salto
 	private bool jumping;
+	public bool frenar = false;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +40,15 @@ public class Player_Controller : MonoBehaviour {
 
 	void FixedUpdate(){
 
+		//friccion artificial
+		Vector3 frenandoVelocidad = rbKahris.velocity;
+		frenandoVelocidad.x *= 0.75f;
+
+
+		if (grounded) {
+			rbKahris.velocity = frenandoVelocidad;
+		}
+
 		//velocidad y movimiento
 		float h = Input.GetAxis ("Horizontal");
 
@@ -58,8 +68,14 @@ public class Player_Controller : MonoBehaviour {
 		}
 		//saltando?
 		if (jumping){
+			rbKahris.velocity = new Vector2 (rbKahris.velocity.x, 0);
 			rbKahris.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 			jumping = false;
 		}
+	}
+
+	void OnBecameInvisible(){
+		transform.position = new Vector3 (-7.01f,-3.72f,-10f);
+	
 	}
 }

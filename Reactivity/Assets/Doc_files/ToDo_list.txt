@@ -5,3 +5,5 @@ this is To Do list:
 Bugs fixing:
 
 2- arreglar materiales y salto en paredes
+3- arreglar salto de paredes, reemplazar metodo por colision con gameObject independiente
+me puede traer problemas de salto en superficies inclinadas
