@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 61171748004982940}
   m_Layer: 0
   m_Name: plat_1_3x5
-  m_TagString: Untagged
+  m_TagString: suelo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

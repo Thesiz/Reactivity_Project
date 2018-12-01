@@ -1,0 +1,7 @@
+this is To Do list:
+
+1- poner escena intro cinematografico despues de pres x button
+
+Bugs fixing:
+
+2- arreglar materiales y salto en paredes

@@ -6,63 +6,45 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-	public static GameController estadoJuego;
+	public Level_Changer levelChanger;
 
 	//TODO: agrear efecto parallax en funcion de movimiento de jugador y no en cada frame
-	//parallax
+
 	public float parallaxSpeed = 0.2f;
 	public RawImage background;
 	public RawImage texturas;
 
-	//gamestate
 
 	public enum GameState {Stop, Playing}
 	public GameState gameState = GameState.Stop;
 
-	void Awake(){
-		if (estadoJuego == null) {
-			estadoJuego = this;
-			DontDestroyOnLoad (gameObject);
-		} else if (estadoJuego != this) {
-			Destroy (gameObject);
-		}
-
-	}
-
-	void Start () {
-		
-	}
-
-	void Update () {
-
-		//Comienza el juego
-		if (gameState == GameState.Stop && (Input.GetKeyDown ("x") || Input.GetMouseButtonDown (0))) {
-			gameState = GameState.Playing;
-
-
-		} //juego en marcha
-		else if (gameState == GameState.Playing) {
-			//TODO: cambiar a nivel_1
-			CambiarEscena("level_1");
-
-		} else {
-			Parallax ();
-		}
-	
-	}
-
-
+	//Parallax
 	public void Parallax () {
 		float finalSpeed = parallaxSpeed * Time.deltaTime;
 		background.uvRect = new Rect (background.uvRect.x + finalSpeed, 0f, 1f, 1f);
 		texturas.uvRect = new Rect (texturas.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
 	}
 
-
-	public void CambiarEscena(string sceneName){
-		print ("Cambiando a " + sceneName);
-		SceneManager.LoadScene (sceneName);
-
+	void Start () {
+		Debug.Log ("helloWorld");
 	}
-		
+
+
+
+	void Update () {
+
+		//Inicializando el juego
+		if (gameState == GameState.Stop && (Input.GetKeyDown ("x") || Input.GetMouseButtonDown (0))) {
+			gameState = GameState.Playing;
+
+
+		} //si oprimo x que hacer?
+		else if (gameState == GameState.Playing) {
+			levelChanger.CambiarEscena();
+
+		} else {
+			Parallax ();
+		}
+	
+	}
 }
