@@ -2,8 +2,13 @@ this is To Do list:
 
 1- poner escena intro cinematografico despues de pres x button
 
+IMPORTANTE! TODO: ACTIVAR DOBLE SALTO CUANDO SUBAMOS DE NIVEL O NOS LO ENCEÑEN
+	- AL TERMINAR EL JUEGO JUMPING DEBE SER = FALSE (linea:48:PlayerController)
+	- AL GANAR HABILIDAD JUMPING DEBE SER = TRUE (linea:48:PlayerController)	
+	
 Bugs fixing:
 
-2- arreglar materiales y salto en paredes
-3- arreglar salto de paredes, reemplazar metodo por colision con gameObject independiente
-me puede traer problemas de salto en superficies inclinadas
+2 Done! - arreglar materiales y salto en paredes
+3 Done! - arreglar salto de paredes, reemplazar metodo por colision con gameObject independiente
+	me puede traer problemas de salto en superficies inclinadas
+4 - eliminar paredes_fisicas y reemplazar sus parametros en plats directamente

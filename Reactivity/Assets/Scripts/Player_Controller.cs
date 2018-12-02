@@ -16,6 +16,11 @@ public class Player_Controller : MonoBehaviour {
 
 	//salto
 	private bool jumping;
+
+	//TODO: ACTIVAR DOBLE SALTO CUANDO SUBAMOS DE NIVEL O NOS LO ENCEÑEN
+	private bool doubleJump;
+	//FIN 
+
 	public bool frenar = false;
 
 	// Use this for initialization
@@ -31,8 +36,23 @@ public class Player_Controller : MonoBehaviour {
 		//instanciando la velocidad a mi anim
 		anim.SetBool("Kahris_on_ground",  grounded);
 
-		if(grounded && (Input.GetKeyDown(KeyCode.UpArrow ) || Input.GetKeyDown ("x") )){
-			jumping = true;
+		//salto de precaucion
+		if (grounded) {
+			doubleJump = true;
+		}
+
+		//tocando saltar?
+		if((Input.GetKeyDown(KeyCode.UpArrow ) || Input.GetKeyDown ("x") )){
+			//tocando suelo?
+			if(grounded){
+				jumping = true;
+				doubleJump = true;
+			} else if (doubleJump){
+				//AL LANZAR EL JUEGO JUMPING DEBE SER = FALSE
+				//AL GANAR HABILIDAD JUMPING DEBE SER = TRUE
+				jumping = true;
+				doubleJump = false;
+			}
 
 		}
 
@@ -54,7 +74,7 @@ public class Player_Controller : MonoBehaviour {
 
 
 		rbKahris.AddForce (Vector2.right * speed * h);
-		Debug.Log (rbKahris.velocity.x);
+		//Debug.Log (rbKahris.velocity.x);
 		//limitando la velocidad
 		float limitedSpeed = Mathf.Clamp (rbKahris.velocity.x, -maxSpeed, maxSpeed);
 		rbKahris.velocity = new Vector2 (limitedSpeed,rbKahris.velocity.y);
