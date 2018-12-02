@@ -32,7 +32,6 @@ public class CheckGround : MonoBehaviour {
 			player.transform.parent = chocando.transform;
 			player.grounded = true;
 		}
-
 	}
 
 	void OnCollisionExit2D(Collision2D chocando){

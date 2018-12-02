@@ -10,7 +10,6 @@ public class Player_Controller : MonoBehaviour {
 
 	//salto
 	public float jumpPower = 6.5f;
-
 	private Rigidbody2D rbKahris;
 	private Animator anim;
 
@@ -41,21 +40,18 @@ public class Player_Controller : MonoBehaviour {
 			doubleJump = true;
 		}
 
-		//tocando saltar?
 		if((Input.GetKeyDown(KeyCode.UpArrow ) || Input.GetKeyDown ("x") )){
 			//tocando suelo?
 			if(grounded){
 				jumping = true;
 				doubleJump = true;
 			} else if (doubleJump){
-				//AL LANZAR EL JUEGO JUMPING DEBE SER = FALSE
+				//AL TERMINAR EL JUEGO JUMPING DEBE SER = FALSE
 				//AL GANAR HABILIDAD JUMPING DEBE SER = TRUE
 				jumping = true;
 				doubleJump = false;
 			}
-
 		}
-
 	}
 
 	void FixedUpdate(){
@@ -68,16 +64,17 @@ public class Player_Controller : MonoBehaviour {
 		if (grounded) {
 			rbKahris.velocity = frenandoVelocidad;
 		}
-
+			
 		//velocidad y movimiento
 		float h = Input.GetAxis ("Horizontal");
-
-
 		rbKahris.AddForce (Vector2.right * speed * h);
 		//Debug.Log (rbKahris.velocity.x);
+
+
 		//limitando la velocidad
 		float limitedSpeed = Mathf.Clamp (rbKahris.velocity.x, -maxSpeed, maxSpeed);
 		rbKahris.velocity = new Vector2 (limitedSpeed,rbKahris.velocity.y);
+
 
 		//cambiar direccion de sprite
 		if (h > 0.1f) {
@@ -86,6 +83,7 @@ public class Player_Controller : MonoBehaviour {
 		if (h < -0.1f) {
 			transform.localScale = new Vector3 (-1f,1f,1f);
 		}
+
 		//saltando?
 		if (jumping){
 			rbKahris.velocity = new Vector2 (rbKahris.velocity.x, 0);
@@ -93,7 +91,7 @@ public class Player_Controller : MonoBehaviour {
 			jumping = false;
 		}
 	}
-
+	//reaparicion
 	void OnBecameInvisible(){
 		transform.position = new Vector3 (-7.01f,-3.72f,-10f);
 	
