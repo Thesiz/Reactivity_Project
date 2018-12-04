@@ -15,3 +15,4 @@ Bugs fixing:
 
 5- arreglar vector de movimiento de paralax, está definido velocitycam solo para x, definir para vector2
 	(linea:41 to 56:CameraFollow)
+6- efectos de sonido

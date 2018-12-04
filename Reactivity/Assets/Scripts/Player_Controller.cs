@@ -7,6 +7,7 @@ public class Player_Controller : MonoBehaviour {
 	public float maxSpeed = 5f;
 	public float speed = 2f;
 	public bool grounded;
+	public ParticleSystem dust;
 
 	//salto
 	public float jumpPower = 6.5f;
@@ -95,5 +96,13 @@ public class Player_Controller : MonoBehaviour {
 	void OnBecameInvisible(){
 		transform.position = new Vector3 (-7.01f,-3.72f,-10f);
 	
+	}
+
+	//sistema de particulas
+	void DustPlay(){
+		dust.Play ();
+	}
+	void DustStop(){
+		dust.Stop ();
 	}
 }
