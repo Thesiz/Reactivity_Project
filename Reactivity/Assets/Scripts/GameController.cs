@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 
 	public float parallaxSpeed = 0.2f;
 	public RawImage background;
-	public RawImage texturas;
+	public RawImage piso;
 
 
 	public enum GameState {Stop, Playing}
@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 	public void Parallax () {
 		float finalSpeed = parallaxSpeed * Time.deltaTime;
 		background.uvRect = new Rect (background.uvRect.x + finalSpeed, 0f, 1f, 1f);
-		texturas.uvRect = new Rect (texturas.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
+		piso.uvRect = new Rect (piso.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
 	}
 
 	void Start () {

@@ -7,6 +7,13 @@ TagManager:
   - suelo
   - movil
   - kahris
+  - warp
+  - levelCanger
+  - JustMapName
+  - enemy
+  - Hud
+  - attack
+  - enemy_attack
   layers:
   - Default
   - TransparentFX
@@ -44,6 +51,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: warp_exit
+    uniqueID: 2735564327
+    locked: 0
   - name: kahris
     uniqueID: 2918623625
+    locked: 0
+  - name: canvas
+    uniqueID: 1950893407
     locked: 0

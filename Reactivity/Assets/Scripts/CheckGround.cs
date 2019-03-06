@@ -7,6 +7,8 @@ public class CheckGround : MonoBehaviour {
 	private Player_Controller player;
 	private Rigidbody2D rbKahris;
 
+
+
 	// Use this for initialization
 	void Start () {
 		player = GetComponent<Player_Controller> ();
